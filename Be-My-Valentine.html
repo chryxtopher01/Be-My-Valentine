@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: pink;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+        .btn {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .yes {
+            background: #ff4d4d;
+            color: white;
+        }
+        .no {
+            background: #555;
+            color: white;
+            position: absolute;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh) translateX(0); opacity: 1; }
+            to { transform: translateY(100vh) translateX(20px); opacity: 0; }
+        }
+        .media-container {
+            margin: 20px 0;
+        }
+        .top-right-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 150px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.imgur.com/w68ppg6.jpeg" class="top-right-image" alt="Romantic Image">
+    <div class="container">
+        <p> Hey Sexy Divaa❤️❤️😍 </p>
+        <h1>From the moment I met you, my days have been brighter, and my heart has been lighter. You make every moment special, and I can't imagine Valentine’s Day without you. ❤️</h1>
+        <div class="media-container">
+            <video width="300" controls>
+                <source src="https://i.imgur.com/Hy4CqJm.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <h1>Will You Be My Valentine? ❤️</h1>
+        <button class="btn yes" onclick="sayYes()">Yes</button>
+        <button class="btn no" id="noBtn" onmouseover="moveNo()">No</button>
+        <p id="message" style="margin-top: 20px; font-size: 1.5em;"></p>
+    </div>
+
+    <script>
+        function sayYes() {
+            document.getElementById('message').innerText = "Yay! Can't wait to spend Valentine’s Day with you! 💖";
+        }
+
+        function moveNo() {
+            let btn = document.getElementById('noBtn');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+
+        createConfetti();
+    </script>
+</body>
+</html>
